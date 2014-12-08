@@ -1,0 +1,19 @@
+<template name="createAccount">
+  {{#autoForm schema="user" id="create-user" validate="submit"}}
+    <fieldset>
+      <legend>Your Details</legend>
+        {{> afQuickField id="username" name='username'}}
+        {{> afQuickField id="email" name='email'}}
+        {{> afQuickField id="password" name='password'}}
+        {{> afQuickField id="passwordConfirm" name='passwordConfirm'}}
+    </fieldset>
+
+    <fieldset>
+      <legend>Profile (Optional)</legend>
+        {{> afQuickField id="name" name='name'}}
+        {{> afFieldInput id="subscribe" name='subscribe' type="boolean-checkbox"}}
+    </fieldset>
+
+    <input class="btn btn-default" type="submit" value="Sign Up!">
+  {{/autoForm}}
+</template>

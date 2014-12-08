@@ -1,0 +1,22 @@
+<template name="login">
+  {{#if user}}
+      <form id="logout">
+          <a class="btn btn-default" id="logout">Logout</a>
+      </form>
+    {{else}}
+       <form id="login">
+          <label for="login-username">User Name</label>
+          <input type="text" id="login-username">
+
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password">
+
+          <a class="btn btn-default" id="loginAccount">Login</a>
+
+          <a class="btn btn-default" href="{{pathFor 'createAccount'}}">Sign Up</a>
+
+          <p class="danger" id="form-messages"></p>
+
+      </form>
+    {{/if}}
+</template>
