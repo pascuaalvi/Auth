@@ -12,6 +12,7 @@ Template.createAccount.events({
 
     // You can go about getting your data from the form any way you choose, but
     // in the end you want something formatted like so:
+
     user = {
       username: formUsername,
       password: formPassword,
@@ -32,40 +33,5 @@ Template.createAccount.events({
       }
     });
 */
-
   }
 });
-
-// Schema for form
-user = new SimpleSchema ({
-  username:{
-    type: String,
-    label: "Username",
-    max: 50
-  },
-  password:{
-    type: String,
-    label: "Password",
-    max: 50
-  },
-  passwordConfirm:{
-    type: String,
-    label: "Confirm Password",
-    max: 50
-  },
-  email: {
-    type: String,
-    label: "Email",
-    max: 50
-  },
-  name: {
-    type: String,
-    label: "Name",
-    max: 50,
-    optional: true
-  },
-  subscribe: {
-    type: Boolean,
-    label: "Subscribe to Newsletter"
-  }
-})

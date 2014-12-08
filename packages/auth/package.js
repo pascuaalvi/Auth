@@ -9,9 +9,11 @@ Package.onUse(function(api) {
   api.versionsFrom('1.0');
   api.use('accounts-base');
   api.use('accounts-password');
-  api.addFiles('login.html', 'client');
-  api.addFiles('login.js', 'client');
-  api.addFiles('createAccount.html', 'client');
-  api.addFiles('createAccount.js', 'client');
-  api.addFiles('user.js', 'server');
+  api.use('aldeed:autoform');
+  api.use('meteor-platform');
+  api.addFiles('client/views/login.html', 'client');
+  api.addFiles('client/views/login.js', 'client');
+  api.addFiles('client/views/createAccount.html', 'client');
+  api.addFiles('client/views/createAccount.js', 'client');
+  api.addFiles('server/validation/user.js', 'server');
 });
