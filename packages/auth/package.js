@@ -11,9 +11,10 @@ Package.onUse(function(api) {
   api.use('accounts-password');
   api.use('aldeed:autoform');
   api.use('meteor-platform');
+  api.export("userSchema");
+  api.addFiles('server/validation/user.js', 'server');
   api.addFiles('client/views/login.html', 'client');
   api.addFiles('client/views/login.js', 'client');
   api.addFiles('client/views/createAccount.html', 'client');
   api.addFiles('client/views/createAccount.js', 'client');
-  api.addFiles('server/validation/user.js', 'server');
 });
