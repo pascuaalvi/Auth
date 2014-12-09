@@ -1,6 +1,12 @@
 // Schema for form
 Template.createAccount.events({
-  'submit #create-user': function(event, template) {
+  'click #signup, keypress #create-user': function(event, template) {
+    if(event.type === 'keypress'){
+      if (event.which !== 13) {
+        console.log(event.which);
+        return;
+      }
+    }
     var user;
 
     // Collect data and validate it.
@@ -20,11 +26,10 @@ Template.createAccount.events({
       name: formName,
       subscribe: formSub
     }
-    console.log(user);
     // Post the user to the server for creation
     Accounts.createUser(user, function (error) {
       if (error) {
-        console.log(error);
+        Mediator.publish('show_error',error);
       }
       else {
         Router.go('/success');
@@ -33,23 +38,27 @@ Template.createAccount.events({
   }
 });
 
-
-
 userSchema = new SimpleSchema ({
   username:{
     type: String,
     label: "Username",
-    max: 50
+    max: 50,
+    min: 5
   },
   password:{
     type: String,
     label: "Password",
-    max: 50
+    min: 8
   },
   passwordConfirm:{
     type: String,
     label: "Confirm Password",
-    max: 50
+    min: 8,
+    custom: function () {
+      if (this.value !== this.field('password').value) {
+        return "passwordMismatch";
+      }
+    }
   },
   email: {
     type: String,
@@ -66,5 +75,9 @@ userSchema = new SimpleSchema ({
     type: Boolean,
     label: "Subscribe to Newsletter"
   }
+});
+
+SimpleSchema.messages({
+  "passwordMismatch": "Passwords do not match."
 });
 

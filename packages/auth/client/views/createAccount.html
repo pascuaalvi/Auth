@@ -1,5 +1,5 @@
 <template name="createAccount">
-  {{#autoForm schema='userSchema'  id="create-user" validate="submit"}}
+  {{#autoForm schema='userSchema'  id="create-user" validation="keyup"}}
     <fieldset>
       <legend>Your Details</legend>
         {{> afQuickField id="username" name='username'}}
@@ -14,6 +14,6 @@
         {{> afFieldInput id="subscribe" name='subscribe' type="boolean-checkbox"}}
     </fieldset>
 
-    <input class="btn btn-default" type="submit" value="Sign Up!">
+    <a class="btn btn-default" id="signup">Sign Up!</a>
   {{/autoForm}}
 </template>

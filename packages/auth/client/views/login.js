@@ -14,9 +14,8 @@ Template.login.events({
       } else {
         // If no user resulted from the attempt, an error variable will be available
         // in this callback. We can output the error to the user here.
-        var message = "There was an error logging in: <strong>" + error.reason + "</strong>";
-
-        template.find('#form-messages').innerHTML = message;
+        var message = "There was an error logging in: " + error.reason;
+        Mediator.publish('show_error',message);
       }
 
       return;
