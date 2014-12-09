@@ -7,5 +7,5 @@ Template.notifyMessages.helpers({
 Template.notifyMessage.rendered = function() {
   Meteor.setTimeout(function(){
     $(".alert").fadeOut("slow");
-  },2000);
+  },5000);
 };

@@ -29,9 +29,10 @@ Template.createAccount.events({
     // Post the user to the server for creation
     Accounts.createUser(user, function (error) {
       if (error) {
-        Mediator.publish('show_error',error);
+        Mediator.publish('show_danger',error);
       }
       else {
+        Mediator.publish('show_info','Successfully signed in.');
         Router.go('/success');
       }
     });

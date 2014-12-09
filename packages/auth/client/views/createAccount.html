@@ -1,15 +1,15 @@
 <template name="createAccount">
   {{#autoForm schema='userSchema'  id="create-user" validation="keyup"}}
     <fieldset>
-      <legend>Your Details</legend>
+      <legend>Your Details <sup>(Required)</sup></legend>
         {{> afQuickField id="username" name='username'}}
         {{> afQuickField id="email" name='email'}}
-        {{> afQuickField id="password" name='password'}}
-        {{> afQuickField id="passwordConfirm" name='passwordConfirm'}}
+        {{> afQuickField id="password" type="password" name='password'}}
+        {{> afQuickField id="passwordConfirm" type="password" name='passwordConfirm'}}
     </fieldset>
 
     <fieldset>
-      <legend>Profile (Optional)</legend>
+      <legend>Profile <sup>(Optional)</sup></legend>
         {{> afQuickField id="name" name='name'}}
         {{> afFieldInput id="subscribe" name='subscribe' type="boolean-checkbox"}}
     </fieldset>
