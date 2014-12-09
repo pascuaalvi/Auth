@@ -9,7 +9,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.0');
   api.use('accounts-base');
   api.use('accounts-password');
-  api.use('aldeed:autoform');
+  api.use('aldeed:autoform@3.2.0');
   api.use('meteor-platform');
   api.export("userSchema");
   api.addFiles('server/validation/user.js', 'server');

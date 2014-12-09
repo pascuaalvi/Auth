@@ -15,7 +15,7 @@ Template.createAccount.events({
     var formPassword = template.find('#password').value;
     var passwordConfirm = template.find('#passwordConfirm').value;
     var formName = template.find('#name').value;
-    var formSub = template.find('#subscribe').value;
+    var formSub = template.find('#subscribe').checked;
 
     // You can go about getting your data from the form any way you choose, but
     // in the end you want something formatted like so:
@@ -26,6 +26,7 @@ Template.createAccount.events({
       name: formName,
       subscribe: formSub
     }
+    console.log(user);
     // Post the user to the server for creation
     Accounts.createUser(user, function (error) {
       if (error) {
@@ -74,7 +75,8 @@ userSchema = new SimpleSchema ({
   },
   subscribe: {
     type: Boolean,
-    label: "Subscribe to Newsletter"
+    label: "Subscribe to Newsletter",
+    optional: true
   }
 });
 
