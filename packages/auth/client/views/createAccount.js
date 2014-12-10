@@ -1,45 +1,53 @@
-// Schema for form
-Template.createAccount.events({
-  'click #signup, keypress #create-user': function(event, template) {
-    if(event.type === 'keypress'){
-      if (event.which !== 13) {
-        console.log(event.which);
-        return;
+/*Template.createAccount.events({
+  'submit #createUserForm': function(){
+    var call = Meteor.call('createAccountMethod', doc, function (error, result){
+      if(error){
+        Mediator.publish('show_danger',error.message);
       }
-    }
-    var user;
-
-    // Collect data and validate it.
-    var formUsername = template.find('#username').value;
-    var formEmail = template.find('#email').value;
-    var formPassword = template.find('#password').value;
-    var passwordConfirm = template.find('#passwordConfirm').value;
-    var formName = template.find('#name').value;
-    var formSub = template.find('#subscribe').checked;
-
-    // You can go about getting your data from the form any way you choose, but
-    // in the end you want something formatted like so:
-    user = {
-      username: formUsername,
-      password: formPassword,
-      email: formEmail,
-      name: formName,
-      subscribe: formSub
-    }
-    console.log(user);
-    // Post the user to the server for creation
-    Accounts.createUser(user, function (error) {
-      if (error) {
-        Mediator.publish('show_danger',error);
-      }
-      else {
-        Mediator.publish('show_info','Successfully signed in.');
-        Router.go('/success');
+      else{
+        Mediator.publish('show_info','Successfully logged in.');
       }
     });
   }
+});*/
+
+Meteor.methods({
+  'createAccountMethod': function(user,doc) { 
+    // A mold for the user that has filled in ALL of the fields.
+    var validUser = {
+        username: String,
+        email: String,
+        password: String,
+        passwordConfirm: String,
+        name: String,
+        subscribe: Boolean
+      };
+
+    // In the case that a property is present in the mold but the user hasn't provided input on that property, we must delete this property
+    for ( var property in doc.$unset ) {
+      if ( _.has(validUser, property) ) {
+        // Deletes the property from Object
+        delete validUser[property];
+      }
+    }
+    
+    // Collect data and validate it.
+    check(user, validUser);
+
+    // Post user to server to be created
+    Accounts.createUser(user);
+    if (Meteor.user()) {
+      Mediator.publish('show_info','Successfully Registered!');
+    }
+    else {
+      Mediator.publish('show_danger',"Failed to log in.");
+    }
+    //console.log("CLIENT: "+Meteor.user());
+    console.log(Meteor.users.find().fetch());
+  }
 });
 
+// Schema for form
 userSchema = new SimpleSchema ({
   username:{
     type: String,

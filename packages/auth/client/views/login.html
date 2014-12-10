@@ -1,6 +1,7 @@
 <template name="login">
   {{#if user}}
       <form id="logout">
+        <p class="navbar-brand">{{user}}</p>
           <a class="btn btn-default" id="logout">Logout</a>
       </form>
     {{else}}
@@ -13,7 +14,7 @@
 
           <a class="btn btn-default" id="loginAccount">Login</a>
 
-          <a class="btn btn-default" href="{{pathFor 'createAccount'}}">Sign Up</a>
+          <a class="btn btn-default" id="createAccount">Sign Up</a>
       </form>
     {{/if}}
 </template>

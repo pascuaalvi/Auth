@@ -1,5 +1,5 @@
 <template name="createAccount">
-  {{#autoForm schema='userSchema'  id="create-user" validation="keyup"}}
+  {{#autoForm schema='userSchema'  id="createUserForm" validation="keyup" type='method' meteormethod='createAccountMethod' resetOnSuccess=false}}
     <fieldset>
       <legend>Your Details <sup>(Required)</sup></legend>
         {{> afQuickField id="username" name='username'}}
@@ -11,9 +11,9 @@
     <fieldset>
       <legend>Profile <sup>(Optional)</sup></legend>
         {{> afQuickField id="name" name='name'}}
-        {{> afQuickField id="subscribe" name='subscribe' type="checkbox"}}
+        {{> afQuickField id="subscribe" name='subscribe' type="boolean-checkbox"}}
     </fieldset>
 
-    <a class="btn btn-default" id="signup">Sign Up!</a>
+    <input class="btn btn-default" type="submit" value="Sign Up">
   {{/autoForm}}
 </template>
