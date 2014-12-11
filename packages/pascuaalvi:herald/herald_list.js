@@ -1,6 +1,6 @@
 Template.heraldMessages.helpers({
   notifications: function() {
-    return Herald.collection.find({},{limit: 1});
+    return Herald.collection.find({});
   }
 });
 

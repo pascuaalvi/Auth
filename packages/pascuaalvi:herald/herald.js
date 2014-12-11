@@ -11,11 +11,11 @@ Herald = {
 
 Meteor.startup(function() {
   return Tracker.autorun(function() {
-    Herald.collection.remove({});
+    //Herald.collection.remove({});
 
     var info = Mediator.subscribe('show_info');
     var danger = Mediator.subscribe('show_danger');
-    //console.log(info+"-"+danger);
+    console.log(info+"-"+danger);
 
     if (info) {
       Herald.throw(info[1],'info');

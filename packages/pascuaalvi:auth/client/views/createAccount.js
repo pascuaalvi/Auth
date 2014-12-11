@@ -43,7 +43,6 @@ Meteor.methods({
       Mediator.publish('show_danger',"Failed to log in.");
     }
     //console.log("CLIENT: "+Meteor.user());
-    console.log(Meteor.users.find().fetch());
   }
 });
 
