@@ -9,8 +9,12 @@
       "1.0.4"
     ],
     [
+      "alanning:roles",
+      "1.2.13"
+    ],
+    [
       "aldeed:autoform",
-      "4.1.0"
+      "4.2.0"
     ],
     [
       "aldeed:simple-schema",
