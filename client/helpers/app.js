@@ -1,3 +1,5 @@
-Meteor.startup(function (){
-	Session.set('currentState',HOME_STATE);
-})
+checkLogin = function () {
+  if (Meteor.userId()) {
+    Session.set('currentState', SUCCESS_STATE);
+  }
+}
