@@ -1,10 +1,13 @@
 
 if ( Meteor.users.find().count() === 0 ){
   var users = [
-      {username:"Normal User",email:"normal@example.com",roles:[]},
-      {username:"View-Secrets User",email:"view@example.com",roles:['view-secrets']},
-      {username:"Manage-Users User",email:"manage@example.com",roles:['manage-users']},
-      {username:"Admin User",email:"admin@example.com",roles:['admin']}
+      {username:"normal",email:"normal@example.com",roles:[]},
+      {username:"viewsec1",email:"view@example.com",roles:['view-secrets'], group:'Shinra'},
+      {username:"manage1",email:"manage@example.com",roles:['manage-users'], group:'Shinra'},
+      {username:"admin1",email:"admin@example.com",roles:['admin'], group:'Shinra'},
+      {username:"viewsec2",email:"view2@example.com",roles:['view-secrets'], group:'Cocoon'},
+      {username:"manage2",email:"manage2@example.com",roles:['manage-users'], group:'Cocoon'},
+      {username:"admin2",email:"admin2@example.com",roles:['admin'], group:'Cocoon'}
     ];
 
   _.each(users, function (user) {
@@ -21,7 +24,12 @@ if ( Meteor.users.find().count() === 0 ){
     });
 
     if (user.roles.length > 0) {
-      Roles.addUsersToRoles(id, user.roles);
+      if (user.group){
+        Roles.addUsersToRoles(id, user.roles, user.group);
+      }
+      else {
+        Roles.addUsersToRoles(id, user.roles);
+      }
     }
 
   });

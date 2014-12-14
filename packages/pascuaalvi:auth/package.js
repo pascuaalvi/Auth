@@ -11,7 +11,7 @@ Package.onUse(function(api) {
   api.use('accounts-base');
   api.use('accounts-password');
   api.use('aldeed:autoform@4.1.0');
-  api.use('alanning:roles');
+  api.use('alanning:roles@1.2.12');
   api.use('meteor-platform');
   api.use('underscore');
 

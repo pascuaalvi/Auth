@@ -4,9 +4,15 @@ Meteor.publish("users", function () {
 });
 
 Meteor.publish('secret', function () {
-  if (Roles.userIsInRole(this.userId, ['view-secrets','admin'])) {
-    return Secret.find({});
-  } else {
+  if (Roles.userIsInRole(this.userId, ['view-secrets','admin']),'Cocoon') {
+    console.log('Cocoon Group');
+    return Secret2.find({});
+  }
+  else if (Roles.userIsInRole(this.userId, ['view-secrets','admin']),'Shinra') {
+    console.log('Shinra Group');
+    return Secret1.find({});
+  }
+  else {
     // user not authorized. do not publish secrets
     this.stop();
     return;
@@ -14,12 +20,16 @@ Meteor.publish('secret', function () {
   }
 });
 
-if(Secret.find().count() === 0){
-  Secret.insert({
+if(Secret1.find().count() === 0){
+  Secret1.insert({
     text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
   });
-  Secret.insert({
+}
+
+if(Secret2.find().count() === 0){
+  Secret2.insert({
     text:"Some secretly covert NSA text."
   });
 }
+
 
