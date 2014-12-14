@@ -7,12 +7,18 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0');
+
   api.use('accounts-base');
   api.use('accounts-password');
-  api.use('aldeed:autoform');
+  api.use('aldeed:autoform@4.1.0');
+  api.use('alanning:roles');
   api.use('meteor-platform');
+  api.use('underscore');
+
   api.export("userSchema");
+
   api.addFiles('server/validation/user.js', 'server');
+  api.addFiles('client/helpers/hooks.js','client')
   api.addFiles('client/views/login.html', 'client');
   api.addFiles('client/views/login.js', 'client');
   api.addFiles('client/views/createAccount.html', 'client');

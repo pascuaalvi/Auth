@@ -1,5 +1,8 @@
 <template name="success">
   <div class="container">
     <strong>Welcome to AUTH!</strong>
+    {{#each topSecret}}
+      <p>{{text}}</p>
+    {{/each}}
   </div>
 </template>

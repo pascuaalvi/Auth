@@ -1,12 +1,12 @@
-<template name="notifyMessages">
+<template name="heraldMessages">
   <div class="errors">
     {{#each notifications}}
-      {{> notifyMessage}}
+      {{> heraldMessage}}
     {{/each}}
   </div>
 </template>
 
-<template name="notifyMessage">
+<template name="heraldMessage">
   <div class="alert alert-{{type}}" role="alert">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
       {{message}}
