@@ -1,20 +1,19 @@
 <template name="login">
   {{#if user}}
-      <form id="logout">
-        <p class="navbar-brand">{{user}}</p>
-          <a class="btn btn-default" id="logout">Logout</a>
-      </form>
-    {{else}}
-       <form id="login">
-          <label for="login-username">User Name</label>
-          <input type="text" id="login-username">
+    <p class="navbar-brand">{{user}}</p>
+    <a class="btn btn-default" id="changePassword">Change Password</a>
+    <a class="btn btn-default" id="logout">Logout</a>
+  {{else}}
+    <form id="login">
+      <label for="login-username">User Name</label>
+      <input type="text" id="login-username">
 
-          <label for="login-password">Password</label>
-          <input type="password" id="login-password">
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password">
 
-          <a class="btn btn-default" id="loginAccount">Login</a>
-
-          <a class="btn btn-default" id="createAccount">Sign Up</a>
-      </form>
-    {{/if}}
+      <input class="btn btn-primary" type="submit" id="loginAccount" value="Login">
+      <a class="btn btn-default" id="createAccount">Sign Up</a>
+      <a class="btn btn-danger" id="forgotPassword">Forgot Password</a>
+    </form>
+  {{/if}}
 </template>

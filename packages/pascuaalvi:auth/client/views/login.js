@@ -1,5 +1,6 @@
 Template.login.events({
-  'click #loginAccount ': function(event, template) {
+  'submit #login ': function(event, template) {
+    event.preventDefault();
     // 1. Collect the username and password from the form
     var username = template.find('#login-username').value;
     var password = template.find('#login-password').value;
@@ -22,11 +23,17 @@ Template.login.events({
     });
   },
   'click #createAccount ': function(event, template) {
-      Session.set('currentState', CREATE_ACCOUNT_STATE);
+    Session.set('currentState', CREATE_ACCOUNT_STATE);
+  },
+  'click #forgotPassword ': function(event, template) {
+    Session.set('currentState', RECOVERY_STATE);
   },
   'click #logout':function () {
     Mediator.publish('show_danger',"Logged Out.");
     Meteor.logout();
+  },
+  'click #changePassword':function () {
+    Session.set('currentState', CHANGE_PASSWORD_STATE);
   }
 });
 

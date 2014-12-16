@@ -15,7 +15,6 @@ Meteor.startup(function() {
 
     var info = Mediator.subscribe('show_info');
     var danger = Mediator.subscribe('show_danger');
-    console.log(info+"-"+danger);
 
     if (info) {
       Herald.throw(info[1],'info');
@@ -27,7 +26,6 @@ Meteor.startup(function() {
       Herald.throw(danger[1],'danger');
       Mediator.reset('show_danger');
       return;
-    } 
+    }
   });
 });
-  

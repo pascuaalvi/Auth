@@ -1,7 +1,7 @@
 Package.describe({
   name: 'pascuaalvi:herald',
   summary: ' Notification and Error reporting System by pascuaalvi ',
-  version: '1.0.0',
+  version: '1.0.3',
   git: 'https://github.com/pascuaalvi/Auth.git'
 });
 

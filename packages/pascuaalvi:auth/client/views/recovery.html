@@ -1,0 +1,23 @@
+<template name="recovery">
+  <div class='container'>
+    {{#if resetPassword}}
+      <form id="set-new-password">
+        <legend> <strong>Reset Password: Set New Password</strong></legend>
+        <label for="new-password">New Password</label>
+        <input type="password" id="new-password" placeholder="Try not to forget this one." required>
+
+        <input type="submit" value="Set New Password">
+
+      </form>
+    {{else}}
+      <form id="forgot-password">
+        <legend> <strong>Reset Password: Email</strong></legend>
+        <label for="user-email">Email</label>
+        <input type="text" id="user-email" placeholder="Email" required>
+
+        <input type="submit" value="Get Reset Password Instructions">
+
+      </form>
+    {{/if}}
+  </div>
+</template>

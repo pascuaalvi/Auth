@@ -4,15 +4,20 @@ Meteor.publish("users", function () {
 });
 
 Meteor.publish('secret', function () {
-  if (Roles.userIsInRole(this.userId, ['view-secrets','admin']),'Cocoon') {
+  if (Roles.userIsInRole(this.userId, ['view-secrets','admin'],'Cocoon')) {
     console.log('Cocoon Group');
     return Secret2.find({});
   }
-  else if (Roles.userIsInRole(this.userId, ['view-secrets','admin']),'Shinra') {
+  else if (Roles.userIsInRole(this.userId, ['view-secrets','admin'],'Shinra')) {
     console.log('Shinra Group');
     return Secret1.find({});
   }
+  else if (Roles.userIsInRole(this.userId, ['view-secrets','admin'],'Pascual')) {
+    console.log('Pascual Group');
+    return Meteor.users.find({});
+  }
   else {
+    console.log('No Group');
     // user not authorized. do not publish secrets
     this.stop();
     return;

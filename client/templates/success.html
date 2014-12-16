@@ -1,8 +1,11 @@
 <template name="success">
-  <div class="container">
+  <div class="col-xs-6">
     <strong>Welcome to AUTH!</strong>
     {{#each topSecret}}
       <p>{{text}}</p>
     {{/each}}
+  </div>
+  <div class="col-xs-6">
+    {{> insertForm}}
   </div>
 </template>

@@ -1,6 +1,7 @@
 
 if ( Meteor.users.find().count() === 0 ){
   var users = [
+      {username:'alvin',email:"alvinpascual21@gmail.com",roles:['view-secrets','manage-users','admin'],group:'Pascual'},
       {username:"normal",email:"normal@example.com",roles:[]},
       {username:"viewsec1",email:"view@example.com",roles:['view-secrets'], group:'Shinra'},
       {username:"manage1",email:"manage@example.com",roles:['manage-users'], group:'Shinra'},

@@ -2,7 +2,6 @@ AutoForm.hooks({
   createUserForm: {
     // Called when form does not have a `type` attribute
     onSubmit: function(doc) {
-      console.log(doc);
       this.event.preventDefault();
 
       // Post the user to the server for creation

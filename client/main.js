@@ -1,4 +1,6 @@
 Meteor.startup( function () {
 	Meteor.subscribe('users');
-	Session.set('currentState', HOME_STATE)
+  if (!Session.get('currentState')) {
+    Session.set('currentState', HOME_STATE);
+  }
 });
