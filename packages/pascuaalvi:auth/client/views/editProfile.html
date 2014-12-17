@@ -1,0 +1,23 @@
+<template name="editProfile">
+  <div class="container list-group">
+    <h3> Edit Profile </h3>
+    <div class="list-group-item ">
+      {{#if enabledEmail}}
+        {{> changeEmail}}
+      {{else}}
+        <h4>Email Address</h4><a id="email" >Change</a>
+      {{/if}}
+    </div>
+    <div class="list-group-item ">
+      {{#if enabledPassword}}
+        {{> changePassword}}
+      {{else}}
+        <h4>Password</h4><a id="password" >Change</a>
+      {{/if}}
+    </div>
+
+    <div class="list-group-item ">
+      <h4>Profile</h4>
+    </div>
+  </div>
+</template>

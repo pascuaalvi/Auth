@@ -1,6 +1,6 @@
 checkLogin = function () {
   if (Meteor.userId()) {
-    if (Session.get('currentState') === CHANGE_PASSWORD_STATE){
+    if (Session.get('currentState') === EDIT_PROFILE_STATE){
       return;
     }
     else {

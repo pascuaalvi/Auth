@@ -18,6 +18,7 @@ Package.onUse(function(api) {
   api.export("states");
 
   api.addFiles('server/validation/user.js', 'server');
+  api.addFiles('lib/userEdit.js');
   api.addFiles('client/helpers/hooks.js','client')
   api.addFiles('client/views/login.html', 'client');
   api.addFiles('client/views/login.js', 'client');
@@ -25,6 +26,10 @@ Package.onUse(function(api) {
   api.addFiles('client/views/createAccount.js', 'client');
   api.addFiles('client/views/recovery.html','client');
   api.addFiles('client/views/recovery.js','client');
+  api.addFiles('client/views/editProfile.html','client');
+  api.addFiles('client/views/editProfile.js','client');
   api.addFiles('client/views/changePassword.html','client');
   api.addFiles('client/views/changePassword.js','client');
+  api.addFiles('client/views/changeEmail.html','client');
+  api.addFiles('client/views/changeEmail.js','client');
 });

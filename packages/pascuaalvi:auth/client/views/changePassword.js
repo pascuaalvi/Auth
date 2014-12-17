@@ -1,5 +1,6 @@
 Template.changePassword.events({
 'submit #change-password': function(event, template) {
+  event.preventDefault();
   var currentPassword,
     newPassword,
     newPasswordRepeated;
@@ -19,7 +20,7 @@ Template.changePassword.events({
       Mediator.publish('show_danger',error.reason);
     } else {
       Mediator.publish('show_info','You reset your password!');
-      Session.set('currentState',SUCCESS_STATE);
+      Session.set('password',false);
     }
   });
   return false;

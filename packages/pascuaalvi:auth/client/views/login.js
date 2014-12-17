@@ -33,7 +33,7 @@ Template.login.events({
     Meteor.logout();
   },
   'click #changePassword':function () {
-    Session.set('currentState', CHANGE_PASSWORD_STATE);
+    Session.set('currentState', EDIT_PROFILE_STATE);
   }
 });
 
