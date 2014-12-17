@@ -14,7 +14,7 @@ Meteor.publish('secret', function () {
   }
   else if (Roles.userIsInRole(this.userId, ['view-secrets','admin'],'Pascual')) {
     console.log('Pascual Group');
-    return Meteor.users.find({});
+    return Secret0.find({});
   }
   else {
     console.log('No Group');
@@ -28,6 +28,12 @@ Meteor.publish('secret', function () {
 Meteor.publish('files', function (id) {
   return Files.find({authorId: id});
 });
+
+if(Secret0.find().count() === 0){
+  Secret0.insert({
+    text:"Audi fammam, illibus."
+  });
+}
 
 if(Secret1.find().count() === 0){
   Secret1.insert({
