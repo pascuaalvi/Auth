@@ -1,0 +1,24 @@
+<template name="fileList">
+  <div class="fileList">
+    {{#if filesExist}}
+    <p> Your uploaded files </p>
+      {{#each files}}
+        <div class="file">
+          <div class='col-xs-6'>
+            <strong>{{this.name}}</strong> -
+            {{#if this.desc }}
+              {{this.desc}}
+            {{else}}
+              No Description Added
+            {{/if}}
+          </div>
+          <div class='col-xs-6'>
+            <a href="{{this.url download=true}}" class="btn btn-primary">Download</a>
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      <p> No files uploaded </p>
+    {{/if}}
+  </div>
+</template>

@@ -1,11 +1,16 @@
 <template name="success">
-  <div class="col-xs-6">
-    <strong>Welcome to AUTH!</strong>
-    {{#each topSecret}}
-      <p>{{text}}</p>
-    {{/each}}
+  <div class="jumbotron col-xs-12 box">
+    <div class="col-xs-6">
+      <strong>Welcome to AUTH!</strong>
+      {{#each topSecret}}
+        <p>{{text}}</p>
+      {{/each}}
+    </div>
+    <div class="col-xs-6">
+      {{> insertForm}}
+    </div>
   </div>
-  <div class="col-xs-6">
-    {{> insertForm}}
+  <div class="jumbotron col-xs-12 box">
+    {{> fileList}}
   </div>
 </template>

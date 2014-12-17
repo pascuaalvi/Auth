@@ -1,7 +1,8 @@
 <template name="insertForm">
   {{#autoForm id="insertForm" collection="Docs"}}
-  {{> afQuickField name="name"}}
+
   {{> afQuickField id="fileUp" name="fileId" type="cfs-file" collection="Files"}}
+  {{> afQuickField id="desc" name="desc"}}
     <input type="submit" value="Upload">
   {{/autoForm}}
 </template>

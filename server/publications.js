@@ -25,15 +25,19 @@ Meteor.publish('secret', function () {
   }
 });
 
+Meteor.publish('files', function (id) {
+  return Files.find({authorId: id});
+});
+
 if(Secret1.find().count() === 0){
   Secret1.insert({
-    text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
+    text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   });
 }
 
 if(Secret2.find().count() === 0){
   Secret2.insert({
-    text:"Some secretly covert NSA text."
+    text:"Nothing is secret, everything is allowed."
   });
 }
 
