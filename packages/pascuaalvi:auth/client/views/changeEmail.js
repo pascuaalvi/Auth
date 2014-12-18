@@ -45,5 +45,8 @@ Template.changeEmail.events({
     else {
       return;
     }
+  },
+  'click #emailCancel':  function (event, template) {
+    Session.set('email',false);
   }
 });

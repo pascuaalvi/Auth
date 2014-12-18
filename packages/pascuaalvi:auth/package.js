@@ -32,4 +32,6 @@ Package.onUse(function(api) {
   api.addFiles('client/views/changePassword.js','client');
   api.addFiles('client/views/changeEmail.html','client');
   api.addFiles('client/views/changeEmail.js','client');
+  api.addFiles('client/views/changeProfile.html','client');
+  api.addFiles('client/views/changeProfile.js','client');
 });

@@ -1,0 +1,28 @@
+<template name="changeProfile">
+  <form id="change-profile">
+      <legend>Manage Profile</legend>
+      <div class="row">
+      <div class="col-sm-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Your Current Profile</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-6">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="{{currentName}}" required>
+            </div>
+            <div class="col-md-6">
+              <label for="subscribe">Subscribe to Newsletter</label>
+              <input type="checkbox" id="subscribe" checked="{{subscribed}}">
+            </div>
+            <div class="col-md-6">
+              <input class="btn btn-primary" type="submit" value="Update Profile">
+              <a class="glyphicon" id='profileCancel'>Close</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</template>

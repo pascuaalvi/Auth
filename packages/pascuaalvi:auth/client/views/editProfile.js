@@ -4,6 +4,9 @@ Template.editProfile.helpers({
   },
   enabledPassword: function () {
     return Session.get('password');
+  },
+  enabledProfile: function () {
+    return Session.get('profile');
   }
 });
 
@@ -15,10 +18,15 @@ Template.editProfile.events({
   'click #password': function () {
     console.log('password');
     Session.set('password',true);
+  },
+  'click #profile': function () {
+    console.log('profile');
+    Session.set('profile',true);
   }
 });
 
 Template.editProfile.created = function () {
   Session.set('email',false);
   Session.set('password',false);
+  Session.set('profile',false);
 };

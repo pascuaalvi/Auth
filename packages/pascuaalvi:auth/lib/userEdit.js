@@ -10,5 +10,8 @@ Meteor.methods({
     else{
       throw new Meteor.Error("email-delete-last","You cannot delete your only Email Address.");
     }
+  },
+  changeProfile : function(profile) {
+    Meteor.users.update(Meteor.userId(), {$set: {profile: profile}});
   }
 });

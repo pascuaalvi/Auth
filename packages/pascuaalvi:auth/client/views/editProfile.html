@@ -17,7 +17,11 @@
     </div>
 
     <div class="list-group-item ">
-      <h4>Profile</h4>
+      {{#if enabledProfile}}
+        {{> changeProfile}}
+      {{else}}
+        <h4>Profile</h4><a id="profile" >Change</a>
+      {{/if}}
     </div>
   </div>
 </template>
