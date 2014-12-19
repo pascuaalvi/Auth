@@ -6,12 +6,24 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Current Emails</h3>
+            <sub>
+              Click the <a class="glyphicon glyphicon-warning-sign"></a> button
+              to verify the Email Address.
+            </sub>
           </div>
           <div class="panel-body">
             {{#each currentEmail}}
-            <div>
-              {{address}} <a class="glyphicon glyphicon-remove" value='{{address}}'></a>
-            </div>
+              {{#if verified}}
+                <div>
+                  {{address}} <a class="glyphicon glyphicon-remove" value='{{address}}'></a>
+                </div>
+              {{else}}
+                <div>
+                  <a class="glyphicon glyphicon-warning-sign" value='{{address}}'></a>
+                  {{address}}
+                  <a class="glyphicon glyphicon-remove" value='{{address}}'></a>
+                </div>
+              {{/if}}
             {{/each}}
           </div>
         </div>

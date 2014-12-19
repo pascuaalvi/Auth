@@ -28,10 +28,10 @@ Package.onUse(function(api) {
   api.addFiles('client/views/recovery.js','client');
   api.addFiles('client/views/editProfile.html','client');
   api.addFiles('client/views/editProfile.js','client');
-  api.addFiles('client/views/changePassword.html','client');
-  api.addFiles('client/views/changePassword.js','client');
-  api.addFiles('client/views/changeEmail.html','client');
-  api.addFiles('client/views/changeEmail.js','client');
-  api.addFiles('client/views/changeProfile.html','client');
-  api.addFiles('client/views/changeProfile.js','client');
+  api.addFiles('client/views/changes/changePassword.html','client');
+  api.addFiles('client/views/changes/changePassword.js','client');
+  api.addFiles('client/views/changes/changeEmail.html','client');
+  api.addFiles('client/views/changes/changeEmail.js','client');
+  api.addFiles('client/views/changes/changeProfile.html','client');
+  api.addFiles('client/views/changes/changeProfile.js','client');
 });
