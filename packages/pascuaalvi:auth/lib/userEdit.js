@@ -1,17 +1,25 @@
 Meteor.methods({
-  changeEmail: function(newEmail) {
+  addEmail: function(newEmail) {
     Meteor.users.update(Meteor.userId(), {$push: {emails: {address: newEmail}}});
+  },
+  checkEmail: function(email) {
+    if (Meteor.users.findOne({ emails: {$elemMatch: {address: email}}})) {
+      throw new Meteor.Error('email-exists-already','Email is already in use.')
+    }
   },
   removeEmail: function(emailRemove){
     if(Meteor.user().emails.length > 1) {
       // Push new unverified email in collection of emails
-      Meteor.users.update(Meteor.userId(), {$pull: {emails: {address: emailRemove, verified: false}}});
+      Meteor.users.update(Meteor.userId(), {$pull: {emails: {address: emailRemove}}});
     }
     else{
       throw new Meteor.Error("email-delete-last","You cannot delete your only Email Address.");
     }
   },
-  changeProfile : function(profile) {
+  changeProfile: function(profile) {
     Meteor.users.update(Meteor.userId(), {$set: {profile: profile}});
+  },
+  emailVerify: function(emailVerify) {
+    Accounts.sendVerificationEmail(Meteor.userId(),emailVerify);
   }
 });

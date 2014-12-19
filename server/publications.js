@@ -1,9 +1,7 @@
 //For testing only, not part of the AUTH package
-/*
 Meteor.publish("users", function () {
 	return Meteor.users.find({});
 });
-*/
 
 Meteor.publish('secret', function () {
   if (Roles.userIsInRole(this.userId, ['view-secrets','admin'],'Cocoon')) {
