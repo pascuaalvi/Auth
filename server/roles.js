@@ -1,14 +1,14 @@
 
 if ( Meteor.users.find().count() === 0 ){
   var users = [
-      {username:'alvin',email:"alvinpascual21@gmail.com",roles:['view-secrets','manage-users','admin'],group:'Pascual'},
-      {username:"normal",email:"normal@example.com",roles:[]},
-      {username:"viewsec1",email:"view@example.com",roles:['view-secrets'], group:'Shinra'},
+      {username:'alvin',email:"alvinpascual21@gmail.com",roles:['download','upload','view-secrets','manage-users','admin'],group:'Pascual'},
+      {username:"normal",email:"normal@example.com",roles:['upload']},
+      {username:"viewsec1",email:"view@example.com",roles:['download','view-secrets'], group:'Shinra'},
       {username:"manage1",email:"manage@example.com",roles:['manage-users'], group:'Shinra'},
-      {username:"admin1",email:"admin@example.com",roles:['admin'], group:'Shinra'},
-      {username:"viewsec2",email:"view2@example.com",roles:['view-secrets'], group:'Cocoon'},
+      {username:"admin1",email:"admin@example.com",roles:['upload','admin'], group:'Shinra'},
+      {username:"viewsec2",email:"view2@example.com",roles:['download','view-secrets'], group:'Cocoon'},
       {username:"manage2",email:"manage2@example.com",roles:['manage-users'], group:'Cocoon'},
-      {username:"admin2",email:"admin2@example.com",roles:['admin'], group:'Cocoon'}
+      {username:"admin2",email:"admin2@example.com",roles:['upload','admin'], group:'Cocoon'}
     ];
 
   _.each(users, function (user) {

@@ -26,7 +26,6 @@ AutoForm.hooks({
       }
 
       user.profile = profile;
-
       console.log(user)
       // Post the user to the server for creation
       Accounts.createUser(user, function (error) {

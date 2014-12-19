@@ -28,7 +28,12 @@ Meteor.publish('secret', function () {
 });
 
 Meteor.publish('files', function (id) {
-  return Files.find({authorId: id});
+  if (Roles.userIsInRole(this.userId, ['view-secrets'])) {
+    Files.find({});
+  }
+  else {
+    return Files.find({authorId: id});
+  }
 });
 
 if(Secret0.find().count() === 0){
