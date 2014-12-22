@@ -1,6 +1,9 @@
 Template.changeEmail.helpers({
   currentEmail: function () {
     return Meteor.user().emails;
+  },
+  add: function () {
+    return Session.get('emailAdd');
   }
 });
 
@@ -82,6 +85,12 @@ Template.changeEmail.events({
   },
   'click #emailCancel':  function (event, template) {
     Session.set('email',false);
+  },
+  'click #addEmails':  function (event, template) {
+    Session.set('emailAdd',true);
+  },
+  'click #addCancel':  function (event, template) {
+    Session.set('emailAdd',false);
   }
 });
 
