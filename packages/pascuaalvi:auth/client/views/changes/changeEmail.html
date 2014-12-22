@@ -34,36 +34,37 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+      </div>
+      <div class="col-sm-6">
+        {{#if add}}
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Add New Email Addresses</h3>
+            </div>
+            <div class="panel-body">
+              <div class="">
+                <label for="new-email">New Email</label>
+                <br>
+                <input type="text" id="new-email" placeholder="New Email" required>
+              </div>
+              <div class="">
+                <label for="new-email-repeated">Confirm Email</label>
+                <br>
+                <input type="text" id="new-email-repeated" placeholder="Confirm Email" required>
+              </div>
+              <div class="">
+                <br>
+                <input class="btn btn-primary" type="submit" value="Add New Email">
+                 <a class="glyphicon glyphicon-trash" id='addCancel' title='Discard Changes'></a>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+      </div>
+
+      <div class="col-md-4">
           <a class="glyphicon" id='emailCancel' >Close</a>
         </div>
-      </div>
-      {{#if add}}
-      <div class="col-sm-6">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Add New Email Addresses</h3> <a align='right' class="glyphicon" id='emailCancel' >Close</a>
-          </div>
-          <div class="panel-body">
-            <div class="">
-              <label for="new-email">New Email</label>
-              <br>
-              <input type="text" id="new-email" placeholder="New Email" required>
-            </div>
-            <div class="">
-              <label for="new-email-repeated">Confirm Email</label>
-              <br>
-              <input type="text" id="new-email-repeated" placeholder="Confirm Email" required>
-            </div>
-            <div class="">
-              <br>
-              <input class="btn btn-primary" type="submit" value="Add New Email">
-               <a class="glyphicon glyphicon-trash" id='addCancel' title='Discard Changes'></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      {{/if}}
     </div>
   </form>
 </template>

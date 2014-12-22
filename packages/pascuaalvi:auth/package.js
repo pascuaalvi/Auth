@@ -18,6 +18,7 @@ Package.onUse(function(api) {
   api.export("states");
 
   api.addFiles('server/validation/user.js', 'server');
+  api.addFiles('server/emailTemplates.js','server');
   api.addFiles('lib/userEdit.js');
   api.addFiles('client/helpers/hooks.js','client')
   api.addFiles('client/views/login.html', 'client');

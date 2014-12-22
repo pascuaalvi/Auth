@@ -32,7 +32,6 @@ Template.changeEmail.events({
             Mediator.publish('show_danger',error.reason);
           } else {
             Mediator.publish('show_info','Email address has been added!');
-            Session.set('email',false);
           }
         });
       }
@@ -52,7 +51,6 @@ Template.changeEmail.events({
           Mediator.publish('show_danger',error.reason);
         } else {
           Mediator.publish('show_info','Email address '+emailRemove+" has been removed!");
-          Session.set('email',false);
         }
       });
     }
@@ -75,7 +73,6 @@ Template.changeEmail.events({
           Mediator.publish('show_danger',error.reason);
         } else {
           Mediator.publish('show_info','Sent verification email to '+emailVerify+".");
-          Session.set('email',false);
         }
       });
     }

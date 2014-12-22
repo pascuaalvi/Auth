@@ -42,5 +42,16 @@ Template.login.helpers({
     if(Meteor.user()) {
       return Meteor.user().username;
     }
+  },
+  notVerified: function () {
+    var emails = Meteor.user().emails;
+
+    for(index in emails) {
+      var email = emails[index];
+      if(email.verified){
+        return false;
+      }
+    }
+    return true;
   }
 });

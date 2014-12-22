@@ -1,8 +1,17 @@
 <template name="login">
   {{#if user}}
+  <div class=".col-md-4">
     <p class="navbar-brand">{{user}}</p>
     <a class="btn btn-default" id="changePassword">Edit Profile</a>
     <a class="btn btn-default" id="logout">Logout</a>
+  </div>
+  <div class=".col-md-4">
+    {{#if notVerified}}
+      <h5>
+        <span class="label label-danger">Please verify an Email Address via the Edit Profile page.</span>
+      </h5>
+    {{/if}}
+  </div>
   {{else}}
     <form id="login">
       <label for="login-username">User Name</label>
