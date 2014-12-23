@@ -19,18 +19,11 @@ Template.success.helpers({
     return;
   },
   currentView: function () {
-    var groups = Roles.getGroupsForUser (Meteor.userId());
-    if (checkIfInRole(['upload'], groups)){
+    if (checkPermissionGlobal(Meteor.userId(),['upload'])){
       return 'insertForm';
+    }
+    else if (checkPermissionGlobal(Meteor.userId(),['manage-users'])){
+      return 'manageView';
     }
   }
 });
-
-checkIfInRole = function (roles,groups) {
-  if(groups.length > 0){
-      return Roles.userIsInRole(Meteor.userId(),roles,groups[0]);
-  }
-  else {
-    return Roles.userIsInRole(Meteor.userId(),roles);
-  }
-}
