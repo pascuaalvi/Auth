@@ -11,3 +11,10 @@ Accounts.validateNewUser(function (user) {
 
   return true;
 });
+
+Meteor.methods({
+insertUser: function (user) {
+    id = Accounts.createUser(user);
+    Roles.addUsersToRoles(id, ['upload']);
+  }
+});

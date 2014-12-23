@@ -1,4 +1,4 @@
-
+// Sample Data Only
 if ( Meteor.users.find().count() === 0 ){
   var users = [
       {username:'alvin',email:"alvinpascual21@gmail.com",roles:['download','upload','view-secrets','manage-users','admin'],group:'Pascual'},
@@ -23,6 +23,9 @@ if ( Meteor.users.find().count() === 0 ){
         subscribe:true
       }
     });
+
+    // email verification
+    Meteor.users.update({_id: id}, {$set:{'emails.0.verified': true}});
 
     if (user.roles.length > 0) {
       if (user.group){
