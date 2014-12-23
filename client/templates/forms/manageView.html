@@ -1,0 +1,29 @@
+<template name="manageView">
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">All uploads by AUTH users</h3>
+	  </div>
+	  <div class="panel-body">
+			<div class="list-group">
+				{{#if filesExist}}
+					{{#each currentData}}
+						<div class="list-group-item">
+							<legend>{{original.name}}</legend>
+							<div>
+								<strong>Description:</strong> {{desc}}
+							</div>
+							<div>
+								
+							</div>
+							<div>
+								<strong>File Type:</strong> {{original.type}}
+							</div>
+						</div>
+					{{/each}}
+				{{else}}
+					<p> No uploaded files to manage.</p>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</template>

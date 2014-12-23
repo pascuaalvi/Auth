@@ -20,10 +20,15 @@ Template.success.helpers({
   },
   currentView: function () {
     if (checkPermissionGlobal(Meteor.userId(),['upload'])){
+      Session.set('manager', false);
       return 'insertForm';
     }
     else if (checkPermissionGlobal(Meteor.userId(),['manage-users'])){
+       Session.set('manager', true);
       return 'manageView';
     }
+  },
+  manager: function(){
+    return Session.get('manager');
   }
 });
