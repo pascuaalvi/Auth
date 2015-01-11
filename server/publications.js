@@ -27,12 +27,12 @@ Meteor.publish('secret', function () {
 });
 
 Meteor.publish('files', function (id) {
-  if (Roles.userIsInRole(this.userId, ['view-secrets'])) {
-    Files.find({});
-  }
-  else {
-    return Files.find({authorId: id});
-  }
+  return Files.find({authorId: id});
+});
+
+Meteor.publish('manage-files', function (id) {
+  if(checkPermissionGlobal(id,['manage-users']))
+    return Files.find({});
 });
 
 if(Secret0.find().count() === 0){

@@ -3,7 +3,6 @@ AutoForm.hooks({
     // Called when form does not have a `type` attribute
     onSubmit: function(doc) {
       this.event.preventDefault();
-      console.log(doc);
 
       var user = {
         username: doc.username,
@@ -26,14 +25,15 @@ AutoForm.hooks({
       }
 
       user.profile = profile;
-      console.log(user)
-      // Post the user to the server for creation
-      Accounts.createUser(user, function (error) {
+
+      Meteor.call('insertUser',user,function (error,result){
         if (error) {
           Mediator.publish('show_danger',error);
+          document.getElementById("submitAccount").disabled = false;
         }
         else {
-          Mediator.publish('show_info','Successfully signed in.');
+          Mediator.publish('show_info','Successfully created account.');
+          Meteor.loginWithPassword(user.username, user.password);
         }
       });
     }

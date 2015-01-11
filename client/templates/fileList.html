@@ -13,7 +13,11 @@
             {{/if}}
           </div>
           <div class='col-xs-6'>
-            <a href="{{this.url download=true}}" class="btn btn-primary">Download</a>
+            {{#if downloadable}}
+              <a href="{{this.url download=true}}" class="btn btn-primary">Download</a>
+            {{else}}
+              <a href="{{this.url download=false}}" class="btn btn-danger" disabled>Cannot Download</a>
+            {{/if}}
           </div>
         </div>
       {{/each}}

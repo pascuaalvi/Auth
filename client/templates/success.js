@@ -19,18 +19,16 @@ Template.success.helpers({
     return;
   },
   currentView: function () {
-    var groups = Roles.getGroupsForUser (Meteor.userId());
-    if (checkIfInRole(['upload'], groups)){
+    if (checkPermissionGlobal(Meteor.userId(),['upload'])){
+      Session.set('manager', false);
       return 'insertForm';
     }
+    else if (checkPermissionGlobal(Meteor.userId(),['manage-users'])){
+       Session.set('manager', true);
+      return 'manageView';
+    }
+  },
+  manager: function(){
+    return Session.get('manager');
   }
 });
-
-checkIfInRole = function (roles,groups) {
-  if(groups.length > 0){
-      return Roles.userIsInRole(Meteor.userId(),roles,groups[0]);
-  }
-  else {
-    return Roles.userIsInRole(Meteor.userId(),roles);
-  }
-}
