@@ -4,6 +4,10 @@ Template.manageView.helpers({
   },
   filesExist: function () {
     return Files.find({}).count() !== 0;
+  },
+  author: function (id) {
+    Meteor.subscribe('author',id);
+    return Meteor.users.find(id).fetch()[0].username;
   }
 });
 
