@@ -7,7 +7,9 @@ Template.manageView.helpers({
   },
   author: function (id) {
     Meteor.subscribe('author',id);
-    return Meteor.users.find(id).fetch()[0].username;
+    if(Meteor.users.find(id).fetch()[0]){
+      return Meteor.users.find(id).fetch()[0].username;
+    }
   }
 });
 

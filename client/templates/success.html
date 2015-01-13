@@ -4,17 +4,17 @@
       {{> Template.dynamic template=currentView}}
   </div>
   {{#if manager}}
-    
+
   {{else}}
     <div class="jumbotron box">
       {{> fileList}}
     </div>
-    {{#if topSecret}}
-      <div class="well well-sm">
-        {{#each topSecret}}
-          <p>{{text}}</p>
-        {{/each}}
-      </div>
-    {{/if}}
+  {{/if}}
+  {{#if topSecret}}
+    <div class="well well-sm">
+      {{#each topSecret}}
+        <p>{{text}}</p>
+      {{/each}}
+    </div>
   {{/if}}
 </template>

@@ -29,6 +29,6 @@ Template.success.helpers({
     }
   },
   manager: function(){
-    return Session.get('manager');
+    return checkPermissionGlobal(Meteor.userId(),['manage-users']);
   }
 });

@@ -24,7 +24,8 @@ userSchema = new SimpleSchema ({
   email: {
     type: String,
     label: "Email",
-    max: 50
+    max: 50,
+    unique: true
   },
   name: {
     type: String,

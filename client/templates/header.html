@@ -1,5 +1,5 @@
 <template name="header">
-  <nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
@@ -13,9 +13,29 @@
       <br>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          {{> login align="right"}}
+          <li class='{{homeTab}}'>
+            <a id="homeTab">Home</a>
+          </li>
+          {{#if admin}}
+            <li class='{{adminTab}}'>
+              <a id="adminTab">Admin</a>
+            </li>
+          {{/if}}
+          <li id="loginTab" class='dropdown'>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+              {{#if user}}
+                Account
+              {{else}}
+                Log In
+              {{/if}}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <div class="jumbotron">
+                {{> login align="right"}}
+              </div>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
