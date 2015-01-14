@@ -1,15 +1,6 @@
 <template name="success">
   <strong>Welcome to AUTH!</strong>
-  <div class="jumbotron box">
-      {{> Template.dynamic template=currentView}}
-  </div>
-  {{#if manager}}
-
-  {{else}}
-    <div class="jumbotron box">
-      {{> fileList}}
-    </div>
-  {{/if}}
+  {{> Template.dynamic template=currentView}}
   {{#if topSecret}}
     <div class="well well-sm">
       {{#each topSecret}}

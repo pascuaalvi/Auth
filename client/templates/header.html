@@ -13,11 +13,18 @@
       <br>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
-          <li class='{{homeTab}}'>
-            <a id="homeTab">Home</a>
+          {{#if upload}}
+          <li class='{{uploadState}}'>
+            <a id="uploadTab">Upload</a>
           </li>
+          {{/if}}
+          {{#if manage}}
+            <li class='{{manageState}}'>
+              <a id="manageTab">Manage Users</a>
+            </li>
+          {{/if}}
           {{#if admin}}
-            <li class='{{adminTab}}'>
+            <li class='{{adminState}}'>
               <a id="adminTab">Admin</a>
             </li>
           {{/if}}

@@ -19,14 +19,7 @@ Template.success.helpers({
     return;
   },
   currentView: function () {
-    if (checkPermissionGlobal(Meteor.userId(),['upload'])){
-      Session.set('manager', false);
-      return 'insertForm';
-    }
-    else if (checkPermissionGlobal(Meteor.userId(),['manage-users'])){
-       Session.set('manager', true);
-      return 'manageView';
-    }
+    return userStates[Session.get('navigate')].templateName;
   },
   manager: function(){
     return checkPermissionGlobal(Meteor.userId(),['manage-users']);
