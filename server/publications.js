@@ -4,6 +4,23 @@ Meteor.publish("users", function () {
 	return Meteor.users.find({});
 });
 */
+
+Meteor.publish('files', function (id) {
+  return Files.find({authorId: id});
+});
+
+Meteor.publish('author', function (id) {
+  if(checkPermissionGlobal(this.userId,['manage-users']))
+    // Only username is published,
+    // as the role doesn't need any more information than this
+  return Meteor.users.find({_id: id}, {fields: {username: 1}});
+});
+
+Meteor.publish('manage-files', function (id) {
+  if(checkPermissionGlobal(id,['manage-users']))
+    return Files.find({});
+});
+
 Meteor.publish('secret', function () {
   if (Roles.userIsInRole(this.userId, ['view-secrets','admin'],'Cocoon')) {
     console.log('Cocoon Group Secret Admin');
@@ -24,22 +41,6 @@ Meteor.publish('secret', function () {
     return;
 
   }
-});
-
-Meteor.publish('files', function (id) {
-  return Files.find({authorId: id});
-});
-
-Meteor.publish('author', function (id) {
-  if(checkPermissionGlobal(this.userId,['manage-users']))
-    // Only username is published,
-    // as the role doesn't need any more information than this
-  return Meteor.users.find({_id: id}, {fields: {username: 1}});
-});
-
-Meteor.publish('manage-files', function (id) {
-  if(checkPermissionGlobal(id,['manage-users']))
-    return Files.find({});
 });
 
 if(Secret0.find().count() === 0){

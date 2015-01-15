@@ -19,6 +19,7 @@ Template.success.helpers({
     return;
   },
   currentView: function () {
+    if (userStates[Session.get('navigate')])
     return userStates[Session.get('navigate')].templateName;
   },
   manager: function(){
