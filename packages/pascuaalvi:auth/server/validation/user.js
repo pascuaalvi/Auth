@@ -1,7 +1,7 @@
 Accounts.validateNewUser(function (user) {
   // Ensure user name is long enough
-  if (user.username.length < 5) {
-    throw new Meteor.Error(403, 'Your username needs at least 5 characters');
+  if (user.username.length < 3) {
+    throw new Meteor.Error(403, 'Your username needs at least 3 characters');
   }
 
   var passwordTest = new RegExp("(?=.{6,}).*", "g");

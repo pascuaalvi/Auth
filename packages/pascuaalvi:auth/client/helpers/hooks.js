@@ -1,7 +1,7 @@
 AutoForm.hooks({
   createUserForm: {
     // Called when form does not have a `type` attribute
-    onSubmit: function(doc) {
+    onSubmit: function(doc, template) {
       this.event.preventDefault();
 
       var user = {
@@ -24,7 +24,7 @@ AutoForm.hooks({
       Meteor.call('insertUser',user,function (error,result){
         if (error) {
           Mediator.publish('show_danger',error);
-          document.getElementById("submitAccount").disabled = false;
+          this.resetForm();
         }
         else {
           Mediator.publish('show_info','Successfully created account.');
