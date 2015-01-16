@@ -69,3 +69,9 @@ SimpleSchema.messages({
   "passwordMismatch": "Passwords do not match."
 });
 
+Template.createAccount.helpers({
+  userSchema: function () {
+    schema = userSchema;
+    return schema;
+  }
+});

@@ -20,6 +20,7 @@ Package.onUse(function(api) {
   api.export("Profiles");
   api.export("profileHandle");
   api.export("translate");
+  api.export("typeTest");
 
 
   api.addFiles('lib/userEdit.js');

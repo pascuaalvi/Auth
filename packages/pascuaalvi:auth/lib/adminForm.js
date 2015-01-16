@@ -32,7 +32,7 @@ translate = function () {
             properties['type'] = Boolean;
           }
           if(type === "object"){
-            properties['type'] = specialTest(sample);
+            properties['type'] = typeTest(field[property]);
           }
         }
         else if (property === '_id'){
@@ -56,3 +56,13 @@ translate = function () {
   return attributes;
 }
 
+// Testing the sample data to decipher its type.
+// If it is not recognized, then it is not supported
+typeTest = function (sample) {
+  if (sample.constructor === Array) {
+    return Array;
+  }
+  else if(sample instanceof Date){
+    return Date;
+  }
+}

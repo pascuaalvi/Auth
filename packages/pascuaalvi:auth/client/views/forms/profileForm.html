@@ -1,3 +1,5 @@
 <template name="profileForm">
-  {{> quickForm id="profileEditForm" schema='profileSchema'}}
+  {{#if ready}}
+    {{> quickForm id="profileEditForm" schema=profileSchema}}
+  {{/if}}
 </template>

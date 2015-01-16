@@ -13,15 +13,10 @@ AutoForm.hooks({
 
       var profile = {};
 
-      if(doc.name){
-        _.extend (profile, {
-          name: doc.name
-        });
-      }
-      if(doc.subscribe){
-        _.extend (profile, {
-          subscribe: doc.subscribe
-        });
+      for (property in doc) {
+        if(isNotDefaultField(property)){
+          profile[property] = doc[property];
+        }
       }
 
       user.profile = profile;
@@ -39,3 +34,15 @@ AutoForm.hooks({
     }
   }
 });
+
+isNotDefaultField = function (property) {
+  if (property === 'username'
+    || property === 'email'
+    || property === 'password'
+    || property === 'passwordConfirm'){
+    return false;
+  }
+  else {
+    return true;
+  }
+}
